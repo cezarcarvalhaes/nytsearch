@@ -4,9 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import classnames from 'classnames';
 import { CardHeader, CardMedia, CardContent, CardActions, Collapse, IconButton, Typography, Paper } from '@material-ui/core/';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Details from '@material-ui/icons/Details';
 import Tooltip from '@material-ui/core/Tooltip';
-import moment from 'moment';
 
 const styles = theme => ({
   card: {
@@ -42,6 +40,9 @@ const styles = theme => ({
   },
   icon: {
     verticalAlign: 'middle',
+  },
+  link: {
+    textDecoration: "none !important"
   }
 });
 
@@ -59,34 +60,29 @@ class Card extends React.Component {
   render() {
     const { classes } = this.props;
 
-    //Boolean to conditionally render alerts for when a credit card is expired
-
     return (
       <div>
         <Paper className={classes.card}>
-        <CardHeader 
-          title={this.props.title}
-          subheader={this.props.date}             
-          action={
-                <Tooltip title = "View Remittances">
-                  <IconButton onClick = {this.props.toggleModal}>
-                    <Details />
-                  </IconButton>
-                </Tooltip>
-              }
-        />
-        <CardMedia
-          className={classes.media}
-          image={"https://nytimes.com/" + this.props.imageUrl}
-          title="Contemplative Reptile"
-        />
+        <a href = {this.props.url} className={classes.link}>
+          <CardHeader 
+            title={this.props.title}
+            subheader={this.props.date}             
+          />
+        </a>
+        <a href = {this.props.url}>
+          <CardMedia
+            className={classes.media}
+            image={this.props.imageUrl}
+            title="Contemplative Reptile"
+          />
+        </a>
         <CardContent>
         <Typography variant="body1">
               {this.props.snippet}
         </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
-            <Tooltip title = "View Payment Info">
+            <Tooltip title = "More Info">
               <IconButton
                 className={classnames(classes.expand, {
                   [classes.expandOpen]: this.state.expanded,
@@ -101,7 +97,9 @@ class Card extends React.Component {
         </CardActions>
           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
             <CardContent>
-
+              <Typography variant="body1">
+                {this.props.byline}
+              </Typography>
             </CardContent>
           </Collapse>
         </Paper>

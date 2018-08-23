@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Home from "./pages/Home";
-import Wrapper from "./components/Wrapper";
 import Jumbotron from "./components/Jumbotron";
 
 const wrapStyle = {

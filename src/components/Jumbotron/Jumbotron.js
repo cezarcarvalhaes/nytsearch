@@ -15,7 +15,7 @@ const Jumbotron = () =>
     />
     <h1 className="text-center">
       <strong>
-        <i className="fa fa-newspaper-o"></i> Article Search</strong>
+        <i className="fa fa-newspaper-o"></i> Top Stories Search</strong>
     </h1>
   </div>
 
