@@ -5,10 +5,11 @@ This NYT Article Search is a simple article search tool using The New York Times
 This application uses the New York Times Article Database API. 
 
 ---
-** Get Started **
+**Get Started**
+
 In the command line, navigate to the root of the app folder, then run either: yarn start or npm start to launch the app in localhost. 
 ---
-** Dependencies **
+**Dependencies**
 - Create React App
 - Material UI
 - Moment
